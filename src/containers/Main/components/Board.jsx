@@ -1,13 +1,14 @@
 import React, { memo } from 'react';
 // import PropTypes from 'prop-types';
 import { Grid, Skeleton } from '../../../components';
+import formatNumber from '../../../commons/utils/formatNumbers';
 import Card from './Card';
 
 function Board({ data }) {
   const { cases, todayDeaths, recovered, deaths, todayCases } = data;
 
   const getValue = (value) =>
-    value ? value : <Skeleton variant="text" width={182} />;
+    value ? formatNumber(value) : <Skeleton variant="text" width={182} />;
 
   return (
     <Grid container spacing={4}>
